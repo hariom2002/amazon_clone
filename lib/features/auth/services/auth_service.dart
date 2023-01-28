@@ -52,16 +52,16 @@ class AuthService {
     }
   }
 
-  User({
-    required String id,
-    required String name,
-    required String password,
-    required String email,
-    required String address,
-    required String type,
-    required String token,
-    // required List cart
-  }) {}
+  // User({
+  //   required String id,
+  //   required String name,
+  //   required String password,
+  //   required String email,
+  //   required String address,
+  //   required String type,
+  //   required String token,
+  //   // required List cart
+  // }) {}
 
 //   // sign in user
 //   void signInUser({
