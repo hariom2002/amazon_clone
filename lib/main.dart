@@ -5,6 +5,7 @@ import 'package:amazon/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'common/widgets/bottom_bar.dart';
 import 'features/auth/screens/auth_screen.dart';
 
 void main() {
@@ -52,9 +53,9 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
           //     ? Provider.of<UserProvider>(context).user.type == 'user'
-          //     ? const BottomBar()
+          ? const BottomBar()
           //     : const AdminScreen()
-          ? const HomeScreen()
+          // ? const HomeScreen()
           : const AuthScreen(),
     );
   }
