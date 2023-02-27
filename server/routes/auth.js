@@ -51,10 +51,12 @@ authRouter.post("/api/signin", async (req, res) => {
     }
 
     const isMatch = await bcryptjs.compare(password, user.password);
+    // if password dosen't match
     if (!isMatch) {
       return res.status(400).json({ msg: "Incorrect password." });
     }
 
+    // if password match then save this state of app(using token) for next time
     const token = jwt.sign({ id: user._id }, "passwordKey");
     res.json({ token, ...user._doc });
   } catch (e) {

@@ -1,6 +1,8 @@
+import 'package:amazon/features/account/widgets/single_product.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constansts/global_variables.dart';
+import '../services/account_services.dart';
 
 class Orders extends StatefulWidget {
   const Orders({Key? key}) : super(key: key);
@@ -11,18 +13,19 @@ class Orders extends StatefulWidget {
 
 class _OrdersState extends State<Orders> {
   List<Orders>? orders;
-  // final AccountServices accountServices = AccountServices();
+  final AccountServices accountServices = AccountServices();
 
   @override
-  // void initState() {
-  //   super.initState();
-  //   fetchOrders();
-  // }
+  void initState() {
+    super.initState();
+    fetchOrders();
+  }
 
-  // void fetchOrders() async {
-  //   orders = await accountServices.fetchMyOrders(context: context);
-  //   setState(() {});
-  // }
+  void fetchOrders() async {
+    orders =
+        (await accountServices.fetchMyOrders(context: context)).cast<Orders>();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,24 +69,25 @@ class _OrdersState extends State<Orders> {
             top: 20,
             right: 0,
           ),
-          // child: ListView.builder(
-          //   scrollDirection: Axis.horizontal,
-          //   itemCount: orders!.length,
-          //   itemBuilder: (context, index) {
-          //     return GestureDetector(
-          //       onTap: () {
-          //         Navigator.pushNamed(
-          //           context,
-          //           OrderDetailScreen.routeName,
-          //           arguments: orders![index],
-          //         );
-          //       },
-          //       child: SingleProduct(
-          //         image: orders![index].products[0].images[0],
-          //       ),
-          //     );
-          //   },
-          // ),
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: orders!.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  // Navigator.pushNamed(
+                  //   context,
+                  //   OrderDetailScreen.routeName,
+                  //   arguments: orders![index],
+                  // );
+                },
+                // child: SingleProduct(
+                //   image: orders![index].products[0].images[0],
+                // ),
+              );
+              // return SingleProduct(image: list[index],);
+            },
+          ),
         ),
       ],
     );

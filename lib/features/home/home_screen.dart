@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constansts/global_variables.dart';
+
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
           flexibleSpace: Container(
-              // decoration: const BoxDecoration(
-              //   gradient: GlobalVariables.appBarGradient,
-              // ),
-              ),
+            decoration: const BoxDecoration(
+              gradient: GlobalVariables.appBarGradient,
+            ),
+          ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

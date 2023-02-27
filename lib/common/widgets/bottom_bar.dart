@@ -102,14 +102,14 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 ),
               ),
-              child: const Badge(
-                // elevation: 0,
-                badgeContent: Text('2'),
-                // badgeColor: Colors.white,
-                child: Icon(
-                  Icons.shopping_cart_outlined,
-                ),
-              ),
+              // child: const Badge(
+              //   // elevation: 0,
+              //   badgeContent: Text('2'),
+              //   // badgeColor: Colors.white,
+              //   child: Icon(
+              //     Icons.shopping_cart_outlined,
+              //   ),
+              // ),
             ),
             label: '',
           ),

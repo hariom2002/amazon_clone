@@ -41,7 +41,7 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      print('above http get');
+      // print('above http get');
 
       httpErrorHandle(
         response: res,
@@ -86,14 +86,22 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
+      // ignore: use_build_context_synchronously
       httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () async {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           // ignore: use_build_context_synchronously
+
+          // after successfully signin, set the user state to the current user
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
+
+          // setting app preference(using generated token at the time of login)
+          //after successfull login, so that user don't have to login again next time
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
+
+          // finally the authentication is done and now moving to the homeScreen
           // ignore: use_build_context_synchronously
           Navigator.pushNamedAndRemoveUntil(
             context,

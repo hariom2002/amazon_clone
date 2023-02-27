@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constansts/global_variables.dart';
 import '../widgets/below_app_bar.dart';
+import '../widgets/orders.dart';
 import '../widgets/top_buttons.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -54,7 +55,7 @@ class AccountScreen extends StatelessWidget {
           SizedBox(height: 10),
           TopButtons(),
           SizedBox(height: 20),
-          // Orders(),
+          Orders(),
         ],
       ),
     );

@@ -39,6 +39,8 @@ dependencies:
   provider: ^6.0.5
   shared_preferences: ^2.0.17
   badges: ^3.0.2
+  import_sorter: ^4.6.0
+  date_format: ^2.0.7
 
 dev_dependencies:
   flutter_test:
